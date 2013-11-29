@@ -21,21 +21,31 @@
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 	<script src="js/libs/modernizr.custom.min.js"></script>
+
 </head>
 
 
 <body>
-   
-        <section id="home" data-role="page">
+        <!-- This is the first page -->
+<section id="home" data-role="page">
+             
+              <header data-role="header">
+              
+                     <h1>Paint by number <br> Wish List</h1>
+              </header>         
+              <section data-role="content">
              
               
-              <section data-role="header" data-position="fixed">
-                     <h1>Paint by number <br> Wish List</h1>
+              <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Loading Paint by number Wish List" data-inline="true">Add to Wish List</button>
+             <!-- 
+              <a href="#sign" data-role="button" data-icon="arrow-r" data-iconpos="left">Button</a>
+              -->
+                      
+            
                      
-                     </section>
-                     <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Loading Paint by number Wish List" data-inline="true">Add to Wish List</button>
-                     <section>
-                     <h2> Sign Up Here to save list</h2>
+                     <p><a href="#sign">Go to signup page</a></p>
+                     <p><a href="#newlist">Make a new list-</a></p>
+                     
                      <form>
                          <label>
                              <input type="checkbox" name="checkbox-0 ">Check to save password
@@ -44,11 +54,7 @@
                      
                     
                      </section>
-          
-              </section>
-           
-              
-              <section data-role="content">
+                   
               	<ul data-role="listview" data-filter="true">
                 </ul>
                 <section data-inline="true" data-filter="true">
@@ -58,8 +64,108 @@
 
 				
                             </section>
-                          
-                         </section>
+                            
+                            <section data-roles="footer" data-position="fixed">
+            <section data-role="navbar">
+                    <ul>
+                        <li><a href="#favorite" data-icon="star" class="ui-btn-active">favorite</a></li>
+                        <li><a href="#home" data-icon="gear">home</a></li>
+                        <li><a href="#about" data-icon="search">about</a></li>
+                    </ul>
+                    
+                    
+                </section>
+            </section>
+              
+ </section>
+ 
+ 
+ <div data-role="signup" id="sign" data-add-back-btn="true">
+        
+         <section data-role="header" data-position="fixed">
+             <h1>Registration Page </h1>
+         </section>
+        <section data-role="content">
+         
+         <form action="#" method="post" id="recordsignup">
+          <section data-role="fieldcontain">
+             <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="fisrtName" class="required letters"/>
+             </section>
+             
+           <section data-role="fieldcontain">
+             <label for="lastname">Last Name</label>
+          <input type="text" name="lastName" id="lastName" class="required letters"/>
+             </section>
+            <section data-role="fieldcontain">
+             <label for="email">Email</label>
+          <input type="text" name="email" id="email" class="email"/>
+             </section>
+             
+          </form>
+             
+             
+           <a href="#" data-role="button">Submit</a>
+           
+             
+        </section> 
+        
+            
+             
+            <section data-role="footer" data-position="fixed">
+                <section data-role="navbar">
+                    <ul>
+                        <li><a href="#favorite" data-icon="star">favorite</a></li>
+                        <li><a href="#home" data-icon="gear">home</a></li>
+                        <li><a href="#about" data-icon="search">about</a></li>
+                    </ul>
+                    
+                    
+                </section>
+            </section>
+       </div>
+  <!--   Page three -->
+  
+  
+  <div data-role="newlist" id="newlist" data-add-back-btn="true">
+        
+         <section data-role="header" data-position="fixed">
+             <h1>Drop down </h1>
+         </section>
+        <section data-role="content">
+         
+        <section>
+           <a> add/edit wish list </a>
+         </section>
+         
+         <section>
+         	<a> Add new list </a>
+             
+             
+           <a href="#" data-role="button">Are you sure pop up</a>
+           
+           <a> delete all   </a>
+           
+           <a> Clear my list</a>
+           </section>
+           
+             
+        </section> 
+        
+            
+             
+            <section data-role="footer" data-position="fixed">
+                <section data-role="navbar">
+                    <ul>
+                        <li><a href="#favorite" data-icon="star">favorite</a></li>
+                        <li><a href="#home" data-icon="gear">home</a></li>
+                        <li><a href="#about" data-icon="search">about</a></li>
+                    </ul>
+                    
+                    
+                </section>
+            </section>
+       </div>                    
                       
                         
                       

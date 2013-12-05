@@ -2,4 +2,11 @@
 /* CSS Document */
 h1 { font-size: 14px; color: blue; }
     button { color: red; }
+	
+	.display {
+		margin:5px;
+		padding:10px;
+		background:#ededed;
+		border-radious: 3px;
+		min-height: 100px;
 

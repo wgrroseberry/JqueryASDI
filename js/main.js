@@ -1,88 +1,117 @@
-$('#home').on('pageinit', function(){
-     console.log("the home page has fired");
+$('#home').on('pageinit', function () {
+      console.log("The home page has fired");
+});
 
-$( document ).on( "click", ".show-page-loading-msg", function() {
-     console.log("The on click loading message has fired");
-    var $this = $( this ),
-        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
-        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
-        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
-        textonly = !!$this.jqmData( "textonly" );
-        html = $this.jqmData( "html" ) || "";
-    $.mobile.loading( "show", {
-            text: msgText,
-            textVisible: textVisible,
-            theme: theme,
-            textonly: textonly,
-            html: html
-    });
+$('#display').on('pageinit', function () {
+      console.log("The display page has fired");
+	  $('#display').on ('click', function() {
+  alert('Display add event listner is working!!!!!!!!!!!!');
+});
+	  
+	  
+	  
+});
+
+
+
+
+
+$('#sign').on('pageinit', function () {
+      console.log("The sign page has fired");
+	  var rcform = $('#recordsignup');
+		    myCreatureErrorLink = $('#mycreatureErrorslink')
+		    rcform.validate({
+			invalidHandler: function(form, validator) {
+				myCreatureErrorLink.click();
+			},
+			submitHandler: function() {
+		var data = rcform.serializeArray();
+			storeData();
+			console.log(" Line 20 store data right after this storeData line is run");
+		}
+	});
+	console.log("inside the pageinit function");
+	//any other code needed for addItem page goes here
 	
-	// Get a handle on the first button element in the document.
-	console.log("above the button querySelector line 21");
-    var button = document.querySelector( "button" );
-	console.log("below the button selector line 23");
-	 // If a user clicks on it, say hello!
-	 console.log("above say hello function");
-    button.addEventListener( "click", function( ev ) {
-        alert( "Hello" );
-    }, false);
-})
-.on( "click", ".hide-page-loading-msg", function() {
-    $.mobile.loading( "hide" );
-});
-
-$('#sign').on('pageinit', function(){
- console.log(" The page signup has fired on line 35!!");
- 
- $('#recordsignuphere').submit(function() {
- console.log("inside submit funtion like 38");
-  alert("The form has been submitted");
- });
- 
- 
-  
- var storeData = function(key) {
- 
- if (!key) {
- console.log("makeing a key");
- var id = Math.floor(Math.random()*100000000001);
- console.log("Here is the new key" + id );
- }else {
- 	// Use the same key if one is already assigned 
- 	id = key;
- 	console.log("key is already assigned"+ key );
-  }
- 	// function not made getItems();
- 	var item         = {};
- 	    item.firstname         = ["First Name:", $('#firstName').val()];
- 	    console.log( firstName );
- 	
- 	//Save to Local Storage
- 	localStorage.setItem(id, JSON.stringify(item));
- 	alert("Your faviorate Paint by number is saved!");
- 
- 
- }
- 
- 
-
- 
- 
- 
- 
- 
- 
- 
-
-
-
-
 
 });
 
-
-
-
-
-
+$('#newlist').on('pageinit', function () {
+      console.log("The newlist page has fired");
 });
+
+
+var storeData = function(key){
+	    
+		if (!key) {
+		// if there is no key, this mean this is a brand new item and requires a new key
+		
+		var id = Math.floor(Math.random()*1000000001);
+		
+		}else{
+		// Set the id to the existing key we're editing so that it will save over the data
+		// the key is the same key that's been passed along from the editSubmit event handler
+		//to the validate function, and then passed here, into the storedata function
+		id = key;
+		console.log("this is the key value on line 93 where is key is established key" + key);
+		}  
+		// Geting all the form field values
+		// Object will contain a array and input values.
+		
+//		getCheckboxes();
+		var item           = {};
+	 	
+        item.firstName             =["FirstName", $('#firstName').val()];
+        item.lastName              =["LastName", $('#lastName').val()];
+        item.email                 =["Email:", $('#email').val()];
+		item.password                 =["Password:", $('#password').val()];
+		item.notes                 =["Notes:", $('#notes').val()];
+		
+		
+	
+	/*	item.gender                =["Gender:", genderValue];   future reference*/
+	//	item.iq                    =["IQ", $('#iq').val()];
+		console.log("right after the getCheckboxes Store Data funtion");
+		console.log("the key = " + key);
+	
+		// Save information into local storage
+		// Use stringify to convert our object to a string.
+		
+		
+		
+		// save to local storage
+		localStorage.setItem(id, JSON.stringify(item));
+		console.log(item);
+		//parseCreatureForm(item);
+		console.log(item);
+		
+		alert("Your faviate Paint by number is saved!");
+		console.log(item);
+	
+	
+}; 
+
+/* add event liseners to convert to jquery
+
+ //Set link & Clink Events
+   
+	 var triggerMyControls =au('toggle');
+	 triggerMyControls.addEventListener("click", toggleMyControls);	
+	
+	 var displayLink =au('displayData');
+	 displayLink.addEventListener("click", getMyData);
+	
+	
+	 var clearData =au('clear');
+	 //var changeData = au()
+	 clear.addEventListener("click", clearLocalStorage);
+	
+	 var saveData =au('submit');
+	 saveData.addEventListener("click", InformationIsCorrect);
+	 
+	 //Console.log output
+		say("hello is this working with a funtion");
+		console.log("is this working the real console.log");
+	//Set checkbox & Radio Click Events: Attach event listener to each radio & checkobx.
+	
+	*/

@@ -1,186 +1,207 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Faviorate's for Paint By Number</title>
-<!--  Mobile viewport optimized: j.mp/bplateviewport -->
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- Mobile IE needs ClearType for smoothing fonts -->
-	<!--<meta http-equiv="cleartype" content="on">     -->
-	
-	<!-- StyleSheets under here -->
-	    
-       <!-- not working replaceing with direct link
-       <script src="css/jquery.mobile-1.3.2.min.css"></script>  -->
-       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-	
-	
-	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
-
-</head>
-
-
-<body>
-        <!-- This is the first page -->
-<section id="home" data-role="page">
-             
-              <header data-role="header">
-              
-                     <h2>Paint by number <br> Wish List</h2>
-              </header>         
-              <section data-role="content">
-              
-              <h1>Hello World</h1>
-    <button>Click Me!</button>
-             
-              
-              <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Loading Paint by number Wish List" data-inline="true">Add to Wish List</button>
-             <!-- 
-              <a href="#sign" data-role="button" data-icon="arrow-r" data-iconpos="left">Button</a>
-              -->
-                      
+    <!doctype html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Faviorate's for Paint By Number</title>
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Mobile IE needs ClearType for smoothing fonts -->
+        <!--<meta http-equiv="cleartype" content="on">     -->
+        
+        <!-- StyleSheets under here -->
+        <link rel="stylesheet" href="themes/Lightblue.min.css" />
+            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+            <link rel="stylesheet" href="css/style.css" />
             
-                     
-                     <p><a href="#sign">Go to signup page</a></p>
-                     <p><a href="#newlist">Make a new list-</a></p>
-                     
-                     <form>
-                         <label>
-                             <input type="checkbox" name="checkbox-0 ">Check to save password
-                         </label>
-                     </form>
-                     
-                    
-                     </section>
-                   
-              	<ul data-role="listview" data-filter="true">
-                </ul>
-                <section data-inline="true" data-filter="true">
-                	
-                    
-
-
-				
-                            </section>
-                            
-                            <section data-roles="footer" data-position="fixed">
-            <section data-role="navbar">
-                    <ul>
-                        <li><a href="#favorite" data-icon="star" class="ui-btn-active">favorite</a></li>
-                        <li><a href="#home" data-icon="gear">home</a></li>
-                        <li><a href="#about" data-icon="search">about</a></li>
-                    </ul>
-                    
-                    
-                </section>
-            </section>
-              
- </section>
- 
- 
- 
- <div data-role="page" id="sign" data-add-back-btn="true">
+           <!-- not working replaceing with direct link
+           <script src="css/jquery.mobile-1.3.2.min.css"></script>  -->
+         <!--  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+            <link rel="stylesheet" href="css/style.css" />
+        -->
         
-         <div data-role="header" data-position="fixed">
-             <h1>Registration Page </h1>
-        
-        <div data-role="content">
-         
-         <form action="#" method="post" id="recordsignup">
-          <div data-role="fieldcontain">
-             <label for="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" class="required letters"/>
-             </div>
-             
-           <div data-role="fieldcontain">
-             <label for="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" class="required letters"/>
-             </div>
-            <div data-role="fieldcontain">
-             <label for="email">Email</label>
-          <input type="text" name="email" id="email" class="email"/>
-             </div>
-             
-      
-          
-           <div data-role="fieldcontain">
-           		<input type="submit" name="submit" value="submit" data-theme="b" />
-           	</div>
-           
-             </form>
-        </div> 
-        
-            
-             
-            <section data-role="footer" data-position="fixed">
-                <section data-role="navbar">
-                    <ul>
-                        <li><a href="#favorite" data-icon="star">favorite</a></li>
-                        <li><a href="#home" data-icon="gear">home</a></li>
-                        <li><a href="#about" data-icon="search">about</a></li>
-                    </ul>
+        <!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+        <script src="js/libs/modernizr.custom.min.js"></script>
+    
+    </head>
+    
+    
+    <body>
+            <!-- This is the first page -->
+    <section id="home" data-role="page">
+                 
+                  <header data-role="header">
+                  
+                         <h2>Paint by number <br> Wish List</h2>
+                  </header>         
+                  <section data-role="content">
+                  
                     
-                    
-                </section>
-            </section>
-       </div>
-       </div>
-  <!--   Page three -->
-  
-  
-  <div data-role="newlist" id="newlist" data-add-back-btn="true">
-        
-         <section data-role="header" data-position="fixed">
-             <h1>Drop down </h1>
-         </section>
-        <section data-role="content">
-         
-        <section>
-           <a> add/edit wish list </a>
-         </section>
-         
-         <section>
-         	<a> Add new list </a>
-             
-             
-           <a href="#" data-role="button">Are you sure pop up</a>
-           
-           <a> delete all   </a>
-           
-           <a> Clear my list</a>
-           </section>
-           
-             
-        </section> 
-        
-            
-             
-            <section data-role="footer" data-position="fixed">
-                <section data-role="navbar">
-                    <ul>
-                        <li><a href="#favorite" data-icon="star">favorite</a></li>
-                        <li><a href="#home" data-icon="gear">home</a></li>
-                        <li><a href="#about" data-icon="search">about</a></li>
-                    </ul>
-                    
-                    
-                </section>
-            </section>
-       </div>                    
-                      
+                  
+                  <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Loading Paint by number Wish List" data-inline="true">Add to Wish List</button>
+                 <!-- 
+                  <a href="#sign" data-role="button" data-icon="arrow-r" data-iconpos="left">Button</a>
+                  -->
+                          
+                          <p><a href="#display">Display my list</a></p>
+                         
+                         <p><a href="#sign">Go to signup page</a></p>
+                         <p><a href="#newlist">Make a new list-</a></p>
+                         
+                         
+                         <form>
+                             <label>
+                                 <input type="checkbox" name="checkbox-0 ">Check to save password
+                             </label>
+                         </form>
+                         
                         
-                      
-						
- 
-  
-   <script src="js/libs/jquery-2.0.3.min.js"></script>
-   <script src="js/libs/jquery.mobile-1.3.2.min.js"></script>
-   <script src="js/libs/jquery.validate.min.js"></script>
-    <script src="js/main.js" type="text/javascript"></script>
-</body>
-</html>
+                         </section>
+                       
+                    <ul data-role="listview" data-filter="true">
+                    </ul>
+                    <section data-inline="true" data-filter="true">
+                        
+                        
+    
+    
+                    
+                                </section>
+                                
+                                <section data-roles="footer" data-position="fixed">
+                <section data-role="navbar">
+                        <ul>
+                            <li><a href="#favorite" data-icon="star" class="ui-btn-active">favorite</a></li>
+                            <li><a href="#home" data-icon="gear">home</a></li>
+                            <li><a href="#about" data-icon="search">about</a></li>
+                        </ul>
+                        
+                        
+                    </section>
+                </section>
+                  
+     </section>
+     
+     
+     
+     <div data-role="page" id="sign" data-add-back-btn="true">
+            
+             <div data-role="header" data-position="fixed">
+                 <h1>Registration Page </h1>
+            
+            <div data-role="content">
+                <div class="display"></div>
+             
+             <form action="#" method="post" id="recordsignup">
+              <div data-role="fieldcontain">
+                 <label for="firstName">First Name</label>
+              <input type="text" name="firstName" id="firstName" data-native-menu="false" class="required"/>
+                 </div>
+                 
+               <div data-role="fieldcontain">
+                 <label for="lastName">Last Name</label>
+              <input type="text" name="lastName" id="lastName" class="required"/>
+                 </div>
+                <div data-role="fieldcontain">
+                 <label for="email">Email</label>
+              <input type="text" name="email" id="email" class="required email"/>
+                 </div>
+                 <div data-role="fieldcontain">
+                 <label for="password">Password</label>
+              <input type="text" name="password" id="password" class="required"/>
+                 </div>
+              <div data-role="fieldcontain">
+                 <label for="notes">Notes</label>
+              <input type="text" name="notes" id="notes" class=""/>
+                 </div>
+                 
+          
+              
+               <div data-role="fieldcontain">
+                    <input type="submit" name="submit" id="submit" value="submit" data-theme="b" />
+                </div>
+               
+                 </form>
+            </div> 
+            
+                
+                 
+                <section data-role="footer" data-position="fixed">
+                    <section data-role="navbar">
+                        <ul>
+                            <li><a href="#favorite" data-icon="star">favorite</a></li>
+                            <li><a href="#home" data-icon="gear">home</a></li>
+                            <li><a href="#about" data-icon="search">about</a></li>
+                        </ul>
+                        
+                        
+                    </section>
+                </section>
+           </div>
+           </div>
+      <!--   Page three -->
+      
+      
+      <div data-role="newlist" id="newlist" data-add-back-btn="true">
+            
+             <section data-role="header" data-position="fixed">
+                 <h1>Drop down </h1>
+             </section>
+            <section data-role="content">
+             
+            <section>
+               <a> add/edit wish list </a>
+             </section>
+             
+             <section>
+                <a> Add new list </a>
+                 
+                 
+               <a href="#" data-role="button">Are you sure pop up</a>
+               
+               <a> delete all   </a>
+               
+               <a> Clear my list</a>
+               </section>
+               
+                 
+            </section> 
+            </div>
+            
+            <div data-role="display" id="display" data-add-back-btn="true">
+                  
+                   <section data-role="header" data-position="fixed">
+                       <h1>This will display my dynamic list </h1>
+                   </section>
+                  <section data-role="content">
+                   
+                  <section>
+                     <a> Display list </a>
+                   </section>
+                   
+                  
+                  </div>
+            
+                
+                 
+                
+                            
+                          
+                            
+     
+          <!-- test page -->
+          <!--
+       <script src="js/libs/jquery-2.0.3.min.js"></script>
+       <script src="js/libs/jquery.mobile-1.3.2.min.js"></script>
+       <script src="js/libs/jquery.validate.min.js"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        -->
+        <!-- <link rel="stylesheet" href="themes/Lightblue.min.css" /> -->
+            <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+            <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+             <script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="js/main.js"></script>
+    </body>
+    </html>

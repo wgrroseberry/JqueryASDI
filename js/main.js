@@ -4,8 +4,8 @@ $('#home').on('pageinit', function () {
 
 $('#display').on('pageinit', function () {
       console.log("The display page has fired");
-	  $('#display').on ('click', function() {
-  alert('Display add event listner is working!!!!!!!!!!!!');
+	  $('#mySubmit').on ('click', function() {
+  console.log('Display add event listner is working!!!!!!!!!!!!');
 });
 	  
 	  
@@ -32,9 +32,50 @@ $('#sign').on('pageinit', function () {
 	});
 	console.log("inside the pageinit function");
 	//any other code needed for addItem page goes here
+	$('#submit').on('click',function () {
+	console.log("displaying a list");
+	 $("ul").empty();
+	 $("h2").empty();
+	 $("h1").empty();
+	 $("p").empty();
+	 $('#main').append('<p>' + firstName + ' ' + lastName + '</p>');
+	 console.log("Here is the fist name last name");
+	 console.log(firstName  + " " +  lastName);
+	 
+	 ///////// testing sample
+/*	 $.getJSON('json/example.json', function(data){
+	         var items = [];
+	 
+	         $.each(data.latest, function() {
+	             items.push("<h2>" + this['thumbTitle'] + "</h2>");
+	             items.push("<ul><li>" + this['thumbSmall'] + "</li></ul>");
+	             items.push("<p>" + this['description'] + "</p>");
+	         });
+	 
+	         $('<div />', {
+	            html: items.join('')
+	             }).appendTo('.leftContainer');
+	 
+	         $('#button').on('click', function(data, name) {                                       
+	 
+	 
+	             name = $('#inputText').val().toUpperCase();
+	             alert(name);  
+	             var results;
+	             results = data.latest.filter(function() {
+	                 return data.latest.name.toUpperCase().indexOf(name) !== -1;
+	             });
+	             return $('#results').innerHTML() = results;
+	             console.log(results);
+	         });
+	    });
+	*/ 
+	 });
 	
-
+//////////////
 });
+//////////////////
+/////////////////
 
 $('#newlist').on('pageinit', function () {
       console.log("The newlist page has fired");

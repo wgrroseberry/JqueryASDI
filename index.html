@@ -97,20 +97,26 @@
              <form action="#" method="post" id="recordsignup">
               <div data-role="fieldcontain">
                  <label for="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" data-native-menu="false" class="required"/>
+              <input type="text" name="firstName" id="firstName" placeholder="First Name" data-native-menu="false" class="required"/>
                  </div>
                  
                <div data-role="fieldcontain">
                  <label for="lastName">Last Name</label>
-              <input type="text" name="lastName" id="lastName" class="required"/>
+              <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="required"/>
                  </div>
                 <div data-role="fieldcontain">
                  <label for="email">Email</label>
-              <input type="text" name="email" id="email" class="required email"/>
+              <input type="text" name="email" id="email" placeholder="email" class="required email"/>
                  </div>
+                
+                 
+                 
+                        
+                         
+              
                  <div data-role="fieldcontain">
                  <label for="password">Password</label>
-              <input type="text" name="password" id="password" class="required"/>
+              <input type="text" name="password" id="password" placeholder="password" class="required"/>
                  </div>
               <div data-role="fieldcontain">
                  <label for="notes">Notes</label>
@@ -122,9 +128,15 @@
                <div data-role="fieldcontain">
                     <input type="submit" name="submit" id="submit" value="submit" data-theme="b" />
                 </div>
+                
                
                  </form>
+                 </div>
             </div> 
+            
+            <div id="main">
+            	<h1>Display:</h1>
+            </div>
             
                 
                  
@@ -132,7 +144,7 @@
                     <section data-role="navbar">
                         <ul>
                             <li><a href="#favorite" data-icon="star">favorite</a></li>
-                            <li><a href="#home" data-icon="gear">home</a></li>
+                            <li><a href="#home" data-icon="home">home</a></li>
                             <li><a href="#about" data-icon="search">about</a></li>
                         </ul>
                         
@@ -140,7 +152,7 @@
                     </section>
                 </section>
            </div>
-           </div>
+         
       <!--   Page three -->
       
       
@@ -174,15 +186,24 @@
                   
                    <section data-role="header" data-position="fixed">
                        <h1>This will display my dynamic list </h1>
+                       <div id="create" class="mydisplay">
+                       <!-- new content goes here -->
+                       
+                       
+                       </div>
                    </section>
                   <section data-role="content">
                    
-                  <section>
-                     <a> Display list </a>
+              
+                     <h1> Display list </h1>
                    </section>
                    
-                  
+                   <button> id="mySubmit"</button>
                   </div>
+                  
+                  
+                  
+                  
             
                 
                  

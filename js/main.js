@@ -1,11 +1,25 @@
 $('#home').on('pageinit', function () {
       console.log("The home page has fired");
+      $('#hideButton').click(function() {
+       $('#disclaimer').hide();
+      });
+      console.log("hide button has been read");
+      
 });
 
 $('#display').on('pageinit', function () {
       console.log("The display page has fired");
+      $('#create').on ('click', function() {
+       var fname = $('#fname').val();
+      
+      
+      
+      
+      $('#printhere').append('<p>' + fname + ' ' + '</p>');
+      
 	  $('#mySubmit').on ('click', function() {
   console.log('Display add event listner is working!!!!!!!!!!!!');
+	  });
 });
 	  
 	  
@@ -38,7 +52,8 @@ $('#sign').on('pageinit', function () {
 	 $("h2").empty();
 	 $("h1").empty();
 	 $("p").empty();
-	 $('#main').append('<p>' + firstName + ' ' + lastName + '</p>');
+	 $("#sign").append("<div>Hello world</div>");
+	 $('#sign').append('<p>' + firstName + ' ' + lastName + '</p>');
 	 console.log("Here is the fist name last name");
 	 console.log(firstName  + " " +  lastName);
 	 

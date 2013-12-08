@@ -39,6 +39,14 @@
             <h2>Paint by number <br> Wish List</h2>
         </header>
         <section data-role="content">
+        		
+                <ul id="list1">
+                	<li class="a">Land Scape</li>
+                    <li class="a">Still Life</li>
+                    <li class="b">Portriate</li>
+                    <li class="b">Nature</li>
+                <ul>
+              <p class="a">This is a paragraph 1</p>
         
        
 
@@ -82,18 +90,17 @@
         
         </section>
 
-    </section>
+   
 
 
 
     <div data-role="page" id="sign" data-add-back-btn="true">
 
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" >
             <h1>Registration Page </h1>
 
             <div data-role="content">
                 <div class="display"></div>
-
                 <form action="#" method="post" id="recordsignup">
                     <div data-role="fieldcontain">
                         <label for="firstName">First Name</label>
@@ -105,8 +112,8 @@
                         <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="required" />
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" placeholder="email" class="required email" />
+                        <label for="myemail">Email</label>
+                        <input type="text" name="email" id="myemail" placeholder="email" class="required email" />
                     </div>
 
 
@@ -115,17 +122,17 @@
 
                     <div data-role="fieldcontain">
                         <label for="password">Password</label>
-                        <input type="text" name="password" id="password" placeholder="password" class="required" />
+                        <input type="text" name="password" id="mypassword" placeholder="password" class="required" />
                     </div>
                     <div data-role="fieldcontain">
                         <label for="notes">Notes</label>
-                        <input type="text" name="notes" id="notes" class="" />
+                        <input type="text" name="notes" id="mynotes" class="" />
                     </div>
 
 
 
                     <div data-role="fieldcontain">
-                        <input type="submit" name="submit" id="submit" value="submit" data-theme="b" />
+                        <button id = "submit" name="submit"  data-theme="b" </button>
                     </div>
 
 
@@ -139,16 +146,9 @@
 
 
 
-        <section data-role="footer" data-position="fixed">
+        <section data-role="footer" >
             <section data-role="navbar">
-                <ul>
-                    <li><a href="#favorite" data-icon="star">favorite</a>
-                    </li>
-                    <li><a href="#home" data-icon="home">home</a>
-                    </li>
-                    <li><a href="#about" data-icon="search">about</a>
-                    </li>
-                </ul>
+                
 
 
             </section>
@@ -189,13 +189,39 @@
         <section data-role="header" data-position="fixed">
             <h1>This will display my dynamic list </h1>
             
-            <div id="form">
-            	<input id="fname" placeholder="First Name"type="" name="" value="" />
+            <div data-role="content">
+            <form action="#" method="post"id="form">
+                 <div data-role="fieldcontain">
+                 <label for="fname">First Name</label>
+            	<input type="text" id="fname" placeholder="FirstName" name="FirstName" class="required" data-native-menu="false" class="required" />
+            	 </div>
+                 <div data-role="fieldcontain">
+                 <label for="lname">Last Name</label>
+            	<input type="text" id="lname" placeholder="LastName" name="LastName"  class="required" data-native-menu="false"/>
+                </div>
+                <div data-role="fieldcontain">
+                <label for="email">Email</label>
+            	<input type="text" id="email" placeholder="Email" name="Email"class="required email" data-native-menu="false" />
+                </div>
+                <div data-role="fieldcontain">
+                <label for="password">password</label>
+            	<input type="text" id="password" placeholder="Password" name="Password" class="required" data-native-menu="false" />
+            	</div>
+                <div data-role="fieldcontain">
+            	<input type="text" id="notes" placeholder="Notes" name="Notes" data-native-menu="false" />
+                </div>
+            	<div data-role="fieldcontain">
+               
             	<button id="create">Create</button>
-            <div id="create" class="mydisplay">
-           </div>
+                </div>
+            </div>
+            	
+          </section>
            
-           <div id="printhere"></div>
+            	            
+         
+           
+           <div id="printhere">
            		<h1>myDisplay:</h1>
            </div>
                 <!-- new content goes here -->

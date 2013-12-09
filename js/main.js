@@ -1,6 +1,13 @@
 $('#display').on('pageinit', function (){
 	 console.log("line 2 pageinit funtion has fired this is awesome!!!");
 	 
+	$("#display").click(function(){
+	    $.get("json.js", function(result){
+	  $('<div id=box></div>').appendTo('body');
+		});
+	        alert(result);
+	});
+	 
 	 
 	
 	var rcform = $('#form');
@@ -26,7 +33,18 @@ $('#display').on('pageinit', function (){
 
 $('#home').on('pageinit', function () {
       console.log("The home page has fired");
-	  $('<a href="#">Link</a>')
+	  $('<a href="#">JSON</a>')
+	  $.ajax({
+	url      : "/Applications/MAMP/htdocs/data.json",
+	type     : "GET",
+	dataType : "json",
+	success  : function(data, status){
+		console.log(status, data);
+		
+	}
+	
+});
+	   $('<a href="#">JSON</a>')
 	    .appendTo('#home')
 		.wrap('<li />')
 		.bind('click', function(){
@@ -268,7 +286,7 @@ function getData(){
 		 var makeSubli = document.createElement('li');
 		 makeSubList.appendChild(makeSubli);
 		 var optSubText = obj[n][0]+" "+obj[n][1];
-		 makeSubli.innerHTML = obtSubText;
+		 makeSubli.innerHTML = optSubText;
 	 }
   }
 }

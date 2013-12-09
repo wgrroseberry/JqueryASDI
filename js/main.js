@@ -1,5 +1,7 @@
 $('#display').on('pageinit', function (){
 	 console.log("line 2 pageinit funtion has fired this is awesome!!!");
+	 
+	 
 	
 	var rcform = $('#form');
 	
@@ -24,6 +26,12 @@ $('#display').on('pageinit', function (){
 
 $('#home').on('pageinit', function () {
       console.log("The home page has fired");
+	  $('<a href="#">Link</a>')
+	    .appendTo('#home')
+		.wrap('<li />')
+		.bind('click', function(){
+			console.log('nav event!');
+			});
 	 // alert($("#list1").html());
 	// $("#list1").html("<l1> New Created Content </li>");
 	var newItem = $("<p>This is a new paragraph</p>");
@@ -37,6 +45,36 @@ $('#home').on('pageinit', function () {
 
 $('#display').on('pageinit', function () {
       console.log("The display page has fired");
+	  $('.edit').on('click', function(e){
+		  e.preventDefault();
+		  
+		  var myKey = $(this).data('key');
+		  
+		  $('#main').append(myKey);
+		  });
+		  
+		  $('.delete').on('click', function(e){
+			  e.preventDefault();
+			  
+			  var myKey = $(this).data('key');
+			  
+			  localStorage.removeItem(myKey);
+		  
+			  
+			  });
+	$('#addItem').on('pageinit', function(){
+		// click events for display, save and clear
+		var displaylink = $('#display');
+		displayLink.on('click', getData);
+		var save = $('#save');
+		save.on('click', validate);
+		var del = $('#delete');
+		clear.on('click', clearLocal);
+		
+		});
+		  
+
+	  
       $('#create').on ('click', function() {
        var fname    = $('#fname').val();
 	   console.log(fname);
@@ -51,13 +89,17 @@ $('#display').on('pageinit', function () {
 	   
        
       
-      
+      var key = +new Date;
+		
+		var edit = '<a href="#" class = "edit" data-key-"' + key + '">Edit</a>';
+		
+		var del = '<a href="#" class = "delete" data-key-"' + key + '">Delete</a>';
       
       
       $('#printhere').prepend('<p>' + fname + ' ' + lname + ' ' + email + ' ' + password + ' ' + notes + '</p>');
    console.log("printing here line 25");
    
-   $('#main').prepend('<p>' + firstName + ' ' + lastName + ' ' + myemail + ' ' +mypassword + ' ' + mynotes + '</p>');
+   $('#main').append('<p>' + firstName + ' ' + lastName + ' ' + myemail + ' ' +mypassword + ' ' + mynotes + ' ' + edit + ' ' + del + '</p>');
    console.log("printing here line 25");
    
    getData();
@@ -67,6 +109,7 @@ $('#display').on('pageinit', function () {
      
 	  $('#mySubmit').on ('click', function() {
   console.log('Display add event listner is working!!!!!!!!!!!!');
+  
 	  });
 });
 	  
@@ -179,7 +222,6 @@ var storeData = function(key){
 		item.notes                 =["Notes:", $('#mynotes').val()];
 		
 		
-		var editDelete = <a href="#" class = "edit">Edit</a>;
 		
 		
 	

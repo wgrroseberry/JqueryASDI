@@ -1,14 +1,5 @@
-//
-
-$(function(){
-
-	$.ajax({
-      url: 'xhr/list.php',
-      type: 'GET',
-      dataType: 'json',
-      success: function(response);{
-      		console.log( response);
-          }
-        });
-        
-  });
+{
+  "one": "Singular sensation",
+  "two": "Beady little eyes",
+  "three": "Little birds pitch by my doorstep"
+}

@@ -1,3 +1,8 @@
+
+
+
+
+
 $('#display').on('pageinit', function (){
 	 console.log("line 2 pageinit funtion has fired this is awesome!!!");
 	 
@@ -34,24 +39,42 @@ $('#display').on('pageinit', function (){
 $('#home').on('pageinit', function () {
       console.log("The home page has fired");
 	  $('<a href="#">JSON</a>')
+	  $(function(){
 	  $.ajax({
-	url      : "/Applications/MAMP/htdocs/data.json",
-	type     : "GET",
+	url      : "xhr/list.php",
+	type     : "get",
 	dataType : "json",
-	success  : function(data, status){
-		console.log(status, data);
+	async    : "false",
+	
+		
+	success  : function(data, status, response){
+		console.log(status, data, response);
+//$.getJSON( 'http://<url>/api.php?callback=?', function ( data ) { alert ( data ); } );
 		
 	}
-	
+	  });
 });
+
 	   $('<a href="#">JSON</a>')
-	    .appendTo('#home')
+	    .prependTo('#home')
 		.wrap('<li />')
 		.bind('click', function(){
+			$(function(){
+	$.get( "xhr/list.php" );
+	$.ajax({
+		url  :  'xhr/test.jason',
+		type : 'GET',
+		dataType: 'json',
+		success: function(response){
+			//console.log(response)
+			}
+	});
+	
+});
 			console.log('nav event!');
 			});
 	 // alert($("#list1").html());
-	// $("#list1").html("<l1> New Created Content </li>");
+	 $("#list1").html("<l1> New Created Content </li>");
 	var newItem = $("<p>This is a new paragraph</p>");
 	$("#para2").html()
       $('#hideButton').click(function() {
@@ -112,6 +135,8 @@ $('#display').on('pageinit', function () {
 		var edit = '<a href="#" class = "edit" data-key-"' + key + '">Edit</a>';
 		
 		var del = '<a href="#" class = "delete" data-key-"' + key + '">Delete</a>';
+		
+		
       
       
       $('#printhere').prepend('<p>' + fname + ' ' + lname + ' ' + email + ' ' + password + ' ' + notes + '</p>');

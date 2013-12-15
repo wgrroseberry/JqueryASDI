@@ -1,7 +1,103 @@
+function workingtest(){
+		console.log("working test has fired on line 2");
+		
+		};
+
+
+
+
+
+
+
+
 $('#myaddpage').on('pageinit', function(){
+	
 	console.log("myaddpage fired");
-	$("li").hide().parent().before("<a href='#'>Show my Paint by number list</a>");
-	$("a").click(function(){
+	
+	
+	
+	 $('div').mouseenter(function() {
+       $(this).animate({
+           height: '+=10px'
+       });
+   });
+   $('div').mouseleave(function() {
+       $(this).animate({
+           height: '-=10px'
+       }); 
+   });
+   $('.myClassRed').click(function() {
+       $(this).fadeOut(1000);
+	   $(this).fadeIn(5);
+   
+	});
+	
+	$('.myClassBlue').click(function() {
+       $(this).fadeOut(1000);
+	   $(this).fadeIn(5);
+   
+	});
+	$('.myClassYellow').click(function() {
+       $(this).fadeOut(1000);
+	   $(this).fadeIn(5);
+   
+	});
+	$('.myClassGreen').click(function() {
+       $(this).fadeOut(1000);
+	   $(this).fadeIn(5);
+	 
+   
+	});
+	
+	$('.clear').click(function() {
+      workingtest();
+	 
+   
+	});
+	
+	console.log("myaddpage fired at the end on line 18");
+	//$("li").hide().parent().before("<a href='#'>Show my Paint by number list</a>");
+	//$("a").click(function(){
+		
+	//});
+	
+	});
+
+		
+/*		// Using the core $.ajax() method
+$.ajax({
+    // the URL for the request
+    url: "post.php",
+ 
+    // the data to send (will be converted to a query string)
+    data: {
+        id: 123
+    },
+ 
+    // whether this is a POST or GET request
+    type: "GET",
+ 
+    // the type of data we expect back
+    dataType : "json",
+ 
+    // code to run if the request succeeds;
+    // the response is passed to the function
+    success: function( json ) {
+        $( "<h1/>" ).text( json.title ).appendTo( "body" );
+        $( "<div class=\"content\"/>").html( json.html ).appendTo( "body" );
+    },
+ 
+    // code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    error: function( xhr, status ) {
+        alert( "Sorry, there was a problem!" );
+    },
+ 
+    // code to run regardless of success or failure
+    complete: function( xhr, status ) {
+        alert( "The request is complete!" );
+    }
+});
 		
 		$("li").show();
 		console.log("Runing getMyData on line 8");
@@ -10,37 +106,27 @@ $('#myaddpage').on('pageinit', function(){
 	//$("li").append(	
 		
 		
-		});
-	
-	
-	
-	
-	
+		});	
 	});
 	
 	$('#home').on('pageinit', function(){
 	console.log("home paged fired");
+	
+	$("delete").on('click', clear);
+		console.log("my jQuery funtion on line 60 the delete link was clicked clicked");
+	
 	$("h2").hide();
 	$("h2").show("slow");
 	
 	//jQuery
-	$(function(){
+/*	$(function(){
 		$('h2').on('click', myFn);
 		console.log("my jQuery funtion on line 26 was clicked");
 		
 		
 		
-		
-		});
+	*/	
 	
-	
-	
-	
-	
-	
-	
-	});
-
 
 $('#signup').on('pageinit', function(){
 	
@@ -80,7 +166,7 @@ function toggleMyControls(n) {
 		case "on":
 		
 		//au('pizzaForm').style.display = "none";
-		//au('clear').style.display = "inline";
+		// au('clear').style.display = "inline";
 		au('toggle').style.display = "inline";
 		au('displayData').style.display = "none";
 		
@@ -147,6 +233,7 @@ var storeData = function(key){
 
 $('.delete').on('click', function(e){
 	e.preventDefault();
+	console.log("the delete function has fired");
 	
 	var myKey = $(this).data('key');
 	
@@ -176,9 +263,12 @@ function getMyData() {
 		au('items').style.display = "block";
 		for (var i = 0, len =localStorage.length; i<len;i++) {
 			console.log("localStorge.length ="+ i +"")
+			//var myDiv = $.create("div");
+			//  var makeli=$.create("li");
 			var makeli = document.createElement('li');
 			var createLinks = document.createElement('li');
-			makeList.appendChild(makeli);
+			//  var makeli=$.create("li");
+			//makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// make from string to an object using json

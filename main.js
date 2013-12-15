@@ -1,1 +1,245 @@
-// JavaScript Document
+$('#myaddpage').on('pageinit', function(){
+	console.log("myaddpage fired");
+	$("li").hide().parent().before("<a href='#'>Show my Paint by number list</a>");
+	$("a").click(function(){
+		
+		$("li").show();
+		console.log("Runing getMyData on line 8");
+		getMyData();
+		
+	//$("li").append(	
+		
+		
+		});
+	
+	
+	
+	
+	
+	});
+	
+	$('#home').on('pageinit', function(){
+	console.log("home paged fired");
+	$("h2").hide();
+	$("h2").show("slow");
+	
+	//jQuery
+	$(function(){
+		$('h2').on('click', myFn);
+		console.log("my jQuery funtion on line 26 was clicked");
+		
+		
+		
+		
+		});
+	
+	
+	
+	
+	
+	
+	
+	});
+
+
+$('#signup').on('pageinit', function(){
+	
+	      console.log("signup page is has fired");
+
+		var rcform = $('#recordpaintbynumber');
+		    myCreatureErrorLink = $('#mycreatureErrorslink')
+		    rcform.validate({
+			invalidHandler: function(form, validator) {
+				myCreatureErrorLink.click();
+			},
+			submitHandler: function() {
+				var data = rcform.serializeArray();
+				//storeData(data);
+				storeData(this.key);
+		// This var works for passing a form with ajax //var data = rcform.serialize();
+		// serializeArray()
+		//	storeData(key);
+			console.log(" Line 15 store data right after this storeData line is run");
+		}
+	});
+	
+	//any other code needed for addItem page goes here
+	
+});
+
+//getElementById Function
+	function au(x){
+		var theElement = document.getElementById(x);
+		return theElement;
+	}
+
+
+// Toggle my controls
+function toggleMyControls(n) {
+	switch(n) {
+		case "on":
+		
+		//au('pizzaForm').style.display = "none";
+		//au('clear').style.display = "inline";
+		au('toggle').style.display = "inline";
+		au('displayData').style.display = "none";
+		
+		break;
+	        case "off":
+		au('pizzaForm').style.display = "block";
+		au('clear').style.display = "inline";
+		au('toggle').style.display = "block";
+		au('displayData').style.display = "block";
+		 
+		break;
+	     default:
+		return false;
+	}
+}
+
+
+
+
+
+var storeData = function(key){
+	    
+		if (!key) {
+		// if there is no key, this mean this is a brand new item and requires a new key
+		
+		var id = Math.floor(Math.random()*1000000001);
+		
+		}else{
+		// Set the id to the existing key we're editing so that it will save over the data
+		// the key is the same key that's been passed along from the editSubmit event handler
+		//to the validate function, and then passed here, into the storedata function
+		id = key;
+		console.log("this is the key value on line 93 where is key is established key" + key);
+		}  
+		// Geting all the form field values
+		// Object will contain a array and input values.
+		
+//		getCheckboxes();
+		var item           = {};
+	 
+        item.email                 =["Email:", $('#Email').val()];
+		item.FirstName             =["FirstName", $('#firstName').val()];
+		item.LastName              =["LastName", $('#LastName').val()];
+		item.Dates                 =["Date:", $('#Dates').val()];
+		item.notes                 =["Notes:", $('#notes').val()];
+	
+	/*	item.gender                =["Gender:", genderValue];   future reference*/
+
+		console.log("right after the getCheckboxes Store Data funtion");
+		console.log("the key = " + key);
+	
+		// Save information into local storage
+		// Use stringify to convert our object to a string.
+		
+		
+		
+		// save to local storage
+		localStorage.setItem(id, JSON.stringify(item));
+		// stringify and parse
+		alert("Your faviate Creature is saved!");
+	
+	
+}; 
+
+$('.delete').on('click', function(e){
+	e.preventDefault();
+	
+	var myKey = $(this).data('key');
+	
+	localStorage.removeItem(key);
+});
+
+function getMyData() {
+		toggleMyControls("on");
+		if (localStorage.length === 0) {
+			alert("There is no data in Local Storeage. I have loaded default data.");
+			getMyDefaultData();
+			
+			
+		} 
+		//Write information for the Local Storeage to the brower.
+	//	var makeDiv = document.createElement('div');
+		//var makeDiv = $.create("div");
+		
+		//Write information for the Local Storeage to the brower.
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		// document.body is writeing the user contents to the screen
+		// for the user to see.
+		document.body.appendChild(makeDiv);
+		au('items').style.display = "block";
+		for (var i = 0, len =localStorage.length; i<len;i++) {
+			console.log("localStorge.length ="+ i +"")
+			var makeli = document.createElement('li');
+			var createLinks = document.createElement('li');
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			// make from string to an object using json
+			var obj = JSON.parse(value);
+		        var makeSubLink = document.createElement('ul');
+			makeli.appendChild(makeSubLink);
+			// Makeing a sublist image dynamicly for each catagory of the list
+			getMyCustomImage(obj.groups[1],makeSubLink);
+			//console.log("groups")+ groups[1] + makeSubLink + " makesublink here";
+			for (var n in obj) {
+				var makeSubli = document.createElement('li');
+		 		makeSubLink.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;
+				makeSubLink.appendChild(createLinks);
+		
+			}
+			(localStorage.key(i), createLinks); // create our edit and delete links
+		}
+	}
+	//Get the image for the right category that is being displayed
+	function getMyCustomImage(pictureName, makeSubLink) {
+		var createLinks = document.createElement('li');
+		makeSubLink.appendChild(createLinks);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "images/"+ pictureName + ".png");
+		createLinks.appendChild(newImg);
+		
+		
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//makeDiv.setAttribute("id", "items");
+		console.log("working");
+		$(clear).addClass(email)
+		//.html(clear)
+		//.appendTo($("#myDiv")) // main div
+		//.click(function(){
+		//	$(this).remove();
+			
+			
+			.hide()
+			.slideToggle(300)
+			.queue(function() {
+				$(this).remove();
+			
+				
+				});
+			
+}
+
+
+ 
+ 

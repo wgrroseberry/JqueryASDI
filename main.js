@@ -1,3 +1,15 @@
+$(document).on('pageshow', '#home', function(){
+	$.couch.db("paintbynumber").view("59092d7c46c9a21338fdf30e8000049c/list.php", {
+		success: function(data) {
+			console.log(data);
+			}
+		});
+//$(document).on('pageinit', '#home', function(){
+//	$('#home').on('pageinit', function(){
+	console.log("home paged fired on line 4");
+	
+});
+
 function workingtest(){
 		console.log("working test has fired on line 2");
 		
@@ -8,9 +20,11 @@ function workingtest(){
 
 
 
-
-
-$('#myaddpage').on('pageinit', function(){
+//example   $(document).on('pageinit', '#home', function(){
+	
+ //example	});
+$(document).on('pageinit', '#myaddpage', function(){
+//$('#myaddpage').on('pageinit', function(){
 	
 	console.log("myaddpage fired");
 	
@@ -108,8 +122,8 @@ $.ajax({
 		
 		});	
 	});
-	
-	$('#home').on('pageinit', function(){
+	$(document).on('pageinit', '#home', function(){
+//	$('#home').on('pageinit', function(){
 	console.log("home paged fired");
 	
 	$("delete").on('click', clear);
@@ -127,8 +141,8 @@ $.ajax({
 		
 	*/	
 	
-
-$('#signup').on('pageinit', function(){
+$(document).on('pageinit', '#signup', function(){
+//$('#signup').on('pageinit', function(){
 	
 	      console.log("signup page is has fired");
 

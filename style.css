@@ -1,10 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
-div {
-    height:100px;
-    width:100px;
-    display: inline-block;
-}
+
 
 #red {
     background-color:#FF0000;

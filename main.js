@@ -1,6 +1,6 @@
 $(document).on('pageshow', '#home', function(){
-	$.couch.db("paintbynumber").view("59092d7c46c9a21338fdf30e8000049c/list.php", {
-		success: function(data) {
+	$.couch.db("paintbynumber").view("senery", {
+		success: function(data) {s
 			console.log(data);
 			}
 		});

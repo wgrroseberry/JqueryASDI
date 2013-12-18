@@ -1,7 +1,57 @@
 $(document).on('pageshow', '#home', function(){
+	// Displays data to the screen 
+	$('#displaydata').click(function(){
+		$("#displaydata").val("function(doc) {\n  \n  return doc;\n}");
+		console.log("display data function on line 3 is working");
+		
+		//var item = (value.value || value.doc);
+		 getMyData();
+			   $('#home').append(
+			      $('<li>').append(
+				  		$('<a>')
+							.attr("href", "program.html")
+						//	.text(item.title)
+		   )
+		  );
+		
+		
+		});
+		//Clears out local storage
+		$('#clear').click(function(){
+		console.log("delete data function on line 10 is working");
+		
+		// Calling DataBase
+		
+		$.couch.db({
+			
+      success : function(dbs) {
+		  console.log("working line 26 couch.allDbs");
+        dbs.forEach(function(db) {
+          $("#databases").append('<li><a href="/_utils/database.html?'+db+'">'+db+'</a></li>');
+        });
+      }
+    });
+		
+		
+		});
+		
+		
 	$.couch.db("paintbynumber").view("senery", {
-		success: function(data) {s
-			console.log(data);
+		success: function(data) {
+		   	console.log(data);
+		   $('#home').empty();
+		   $.each(data.rows, function(index, value) {
+			   var item = (value.value || value.doc);
+			   $('#home').append(
+			      $('<li>').append(
+				  		$('<a>')
+							.attr("href", "program.html")
+							.text(item.title)
+		   )
+		  );
+		  
+		   });
+		   $('#home').listview('refresh');
 			}
 		});
 //$(document).on('pageinit', '#home', function(){
@@ -181,15 +231,15 @@ function toggleMyControls(n) {
 		
 		//au('pizzaForm').style.display = "none";
 		// au('clear').style.display = "inline";
-		au('toggle').style.display = "inline";
-		au('displayData').style.display = "none";
+		//au('toggle').style.display = "inline";
+		//au('displayData').style.display = "none";
 		
 		break;
 	        case "off":
-		au('pizzaForm').style.display = "block";
-		au('clear').style.display = "inline";
-		au('toggle').style.display = "block";
-		au('displayData').style.display = "block";
+	//	au('pizzaForm').style.display = "block";
+	//u('clear').style.display = "inline";
+	//	au('toggle').style.display = "block";
+	//ssss	au('displayData').style.display = "block";
 		 
 		break;
 	     default:
@@ -277,12 +327,12 @@ function getMyData() {
 		au('items').style.display = "block";
 		for (var i = 0, len =localStorage.length; i<len;i++) {
 			console.log("localStorge.length ="+ i +"")
-			//var myDiv = $.create("div");
-			//  var makeli=$.create("li");
+		var myDiv = $.create("div");
+			  var makeli=$.create("li");
 			var makeli = document.createElement('li');
 			var createLinks = document.createElement('li');
-			//  var makeli=$.create("li");
-			//makeList.appendChild(makeli);
+			  var makeli=$.create("li");
+			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// make from string to an object using json
@@ -290,16 +340,16 @@ function getMyData() {
 		        var makeSubLink = document.createElement('ul');
 			makeli.appendChild(makeSubLink);
 			// Makeing a sublist image dynamicly for each catagory of the list
-			getMyCustomImage(obj.groups[1],makeSubLink);
+	//		getMyCustomImage(obj.groups[1],makeSubLink);
 			//console.log("groups")+ groups[1] + makeSubLink + " makesublink here";
-			for (var n in obj) {
-				var makeSubli = document.createElement('li');
-		 		makeSubLink.appendChild(makeSubli);
-				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubli.innerHTML = optSubText;
-				makeSubLink.appendChild(createLinks);
+		//	for (var n in obj) {
+			//	var makeSubli = document.createElement('li');
+		 	//	makeSubLink.appendChild(makeSubli);
+			//	var optSubText = obj[n][0]+" "+obj[n][1];
+			//	makeSubli.innerHTML = optSubText;
+			//	makeSubLink.appendChild(createLinks);
 		
-			}
+		//	}
 			(localStorage.key(i), createLinks); // create our edit and delete links
 		}
 	}

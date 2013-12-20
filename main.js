@@ -1,11 +1,17 @@
+// http://pittypanda.github.com/eclipse
+
+// http://127.0.0.1:5984/mypaintbynumberproject/_all_docs?include_docs=true&start_key=%22hores%22
+
 $(document).on('pageshow', '#home', function(){
 	// Displays data to the screen 
-	$('#displaydata').click(function(){
+	$('#testdisplaydata').click(function(){
 		$("#displaydata").val("function(doc) {\n  \n  return doc;\n}");
 		console.log("display data function on line 3 is working");
 		
+		 
+		
 		//var item = (value.value || value.doc);
-		 getMyData();
+		 //getMyData();
 			   $('#home').append(
 			      $('<li>').append(
 				  		$('<a>')
@@ -16,6 +22,29 @@ $(document).on('pageshow', '#home', function(){
 		
 		
 		});
+		
+		
+		// Get data from the app and put it on the screen.
+	$('#displaydata').on("click", function(e) {
+	 e.preventDefault();
+	 $('#myaddpage').css("display", "none");
+	 $.couch.db("mypaintbynumberproject").view("art",{
+		 
+		 success: function(data){}
+		
+	 })
+	 console.log(data);
+	 console.log("line 238 right after the cosole.log(data); function");
+	});
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//Clears out local storage
 		$('#clear').click(function(){
 		console.log("delete data function on line 10 is working");
@@ -195,7 +224,7 @@ $(document).on('pageinit', '#signup', function(){
 //$('#signup').on('pageinit', function(){
 	
 	      console.log("signup page is has fired");
-
+        
 		var rcform = $('#recordpaintbynumber');
 		    myCreatureErrorLink = $('#mycreatureErrorslink')
 		    rcform.validate({
@@ -222,6 +251,8 @@ $(document).on('pageinit', '#signup', function(){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
+	
+	
 
 
 // Toggle my controls
@@ -317,14 +348,19 @@ function getMyData() {
 		//var makeDiv = $.create("div");
 		
 		//Write information for the Local Storeage to the brower.
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement('ul');
-		makeDiv.appendChild(makeList);
+		
+	    var makeDiv = $("#databases").append("<div> Here I am</div")
+		//var makeDiv = document.createElement('div');
+		//makeDiv.setAttribute("id", "items");
+		var makeList = $("#paintdata").append('ul');
+		//var makeList = document.createElement('ul');
+	//  Jquery takes care of this
+	//	makeDiv.appendChild(makeList);
+		
 		// document.body is writeing the user contents to the screen
 		// for the user to see.
-		document.body.appendChild(makeDiv);
-		au('items').style.display = "block";
+		//document.body.appendChild(makeDiv);
+		//au('items').style.display = "block";
 		for (var i = 0, len =localStorage.length; i<len;i++) {
 			console.log("localStorge.length ="+ i +"")
 		var myDiv = $.create("div");
@@ -332,7 +368,7 @@ function getMyData() {
 			var makeli = document.createElement('li');
 			var createLinks = document.createElement('li');
 			  var makeli=$.create("li");
-			makeList.appendChild(makeli);
+			//makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// make from string to an object using json
